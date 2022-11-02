@@ -9,6 +9,8 @@ TagManager:
   - Chicken
   - Pig
   - Ground
+  - Axe
+  - teat
   layers:
   - Default
   - TransparentFX
