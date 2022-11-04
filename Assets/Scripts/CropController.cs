@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class CropController : MonoBehaviour
 {
     public GameObject terrain, mud, watered, seeds, sprout, crop;
+    public float sproutTime;
 
     private bool repeat;
     // Start is called before the first frame update
@@ -22,11 +24,29 @@ public class CropController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!repeat) return;
+        if (seeds.activeSelf && watered.activeSelf)
+            StartCoroutine(WaitForSprout());
+        /*if (!repeat) return;
         StartCoroutine(CropRepeat());
-        repeat = false;
+        repeat = false;*/
     }
- 
+
+    private IEnumerator WaitForSprout()
+    {
+        yield return new WaitForSeconds(sproutTime);
+        Sprout();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Shovel"))
+            Till();
+        if (other.gameObject.CompareTag("Water"))
+            Water();
+        if (other.gameObject.CompareTag("Seeds"))
+            PlantSeeds();
+    }
+
     private IEnumerator CropRepeat()
     {
         Till();
@@ -54,30 +74,30 @@ public class CropController : MonoBehaviour
         
     }
 
-    void Till()
+    private void Till()
     {
         terrain.SetActive(false);
         mud.SetActive(true);
     }
     
-    void Water()
+    private void Water()
     {
         mud.SetActive(false);
         watered.SetActive(true);
     }
 
-    void PlantSeeds()
+    private void PlantSeeds()
     {
         seeds.SetActive(true);
     }
 
-    void Sprout()
+    private void Sprout()
     {
         seeds.SetActive(false);
         sprout.SetActive(true);
     }
 
-    void CropDone()
+    private void CropDone()
     {
         sprout.SetActive(false);
         crop.SetActive(true);
