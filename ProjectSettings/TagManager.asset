@@ -9,10 +9,8 @@ TagManager:
   - Chicken
   - Pig
   - Ground
-  - Shovel
-  - Crop
-  - Water
-  - Seeds
+  - Axe
+  - teat
   layers:
   - Default
   - TransparentFX
