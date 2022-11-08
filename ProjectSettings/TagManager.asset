@@ -11,6 +11,10 @@ TagManager:
   - Pig
   - Axe
   - Ground
+  - Water
+  - Shovel
+  - Crop
+  - Seeds
   layers:
   - Default
   - TransparentFX

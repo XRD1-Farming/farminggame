@@ -6,13 +6,11 @@ using UnityEngine;
 public class CropController : MonoBehaviour
 {
     public GameObject terrain, mud, watered, seeds, sprout, crop;
-    public float sproutTime;
+    public float sproutTime, cropDoneTime;
 
-    private bool repeat;
     // Start is called before the first frame update
     void Start()
     {
-        repeat = true;
         terrain.SetActive(true);
         mud.SetActive(false);
         watered.SetActive(false);
@@ -26,9 +24,6 @@ public class CropController : MonoBehaviour
     {
         if (seeds.activeSelf && watered.activeSelf)
             StartCoroutine(WaitForSprout());
-        /*if (!repeat) return;
-        StartCoroutine(CropRepeat());
-        repeat = false;*/
     }
 
     private IEnumerator WaitForSprout()
@@ -36,7 +31,13 @@ public class CropController : MonoBehaviour
         yield return new WaitForSeconds(sproutTime);
         Sprout();
     }
-
+    
+    private IEnumerator WaitForCropDone()
+    {
+        yield return new WaitForSeconds(cropDoneTime);
+        CropDone();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Shovel"))
@@ -45,33 +46,6 @@ public class CropController : MonoBehaviour
             Water();
         if (other.gameObject.CompareTag("Seeds"))
             PlantSeeds();
-    }
-
-    private IEnumerator CropRepeat()
-    {
-        Till();
-        // process pre-yield
-        yield return new WaitForSeconds( 5.0f );
-        // process post-yield
-        Water();
-        yield return new WaitForSeconds( 5.0f );
-        // process post-yield
-        PlantSeeds();
-        yield return new WaitForSeconds( 5.0f );
-        // process post-yield
-        Sprout();
-        yield return new WaitForSeconds( 5.0f );
-        // process post-yield
-        CropDone();
-        yield return new WaitForSeconds( 5.0f );
-        terrain.SetActive(true);
-        mud.SetActive(false);
-        watered.SetActive(false);
-        seeds.SetActive(false);
-        sprout.SetActive(false);
-        crop.SetActive(false);
-        repeat = true;
-        
     }
 
     private void Till()
@@ -95,11 +69,22 @@ public class CropController : MonoBehaviour
     {
         seeds.SetActive(false);
         sprout.SetActive(true);
+        StartCoroutine(WaitForCropDone());
     }
 
     private void CropDone()
     {
         sprout.SetActive(false);
         crop.SetActive(true);
+    }
+
+    private void Harvested()
+    {
+        terrain.SetActive(true);
+        mud.SetActive(false);
+        watered.SetActive(false);
+        seeds.SetActive(false);
+        sprout.SetActive(false);
+        crop.SetActive(false);
     }
 }
