@@ -15,6 +15,7 @@ TagManager:
   - Shovel
   - Crop
   - Seeds
+  - Firelighter
   layers:
   - Default
   - TransparentFX
