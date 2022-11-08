@@ -3,26 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Sheep
-  - Cow
-  - Chicken
-  - Pig
-  - Ground
-<<<<<<< HEAD
-  - Shovel
-  - Crop
-  - Water
-  - Seeds
-=======
-  - Axe
-  - teat
->>>>>>> parent of fcb4f41... Revert "Killing chickens and milking cows"
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
   - 
