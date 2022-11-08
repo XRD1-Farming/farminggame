@@ -9,10 +9,15 @@ TagManager:
   - Chicken
   - Pig
   - Ground
+<<<<<<< HEAD
   - Shovel
   - Crop
   - Water
   - Seeds
+=======
+  - Axe
+  - teat
+>>>>>>> parent of fcb4f41... Revert "Killing chickens and milking cows"
   layers:
   - Default
   - TransparentFX
