@@ -1880,8 +1880,8 @@ GameObject:
   - component: {fileID: 9213206596740143703}
   - component: {fileID: 54186851546604756}
   - component: {fileID: 136373561480327732}
-  - component: {fileID: 723265912}
   - component: {fileID: 7377095463711705119}
+  - component: {fileID: 3829151203396944148}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Chicken
@@ -1935,24 +1935,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &723265912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9213206596740143696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7e021d804bceb74489e88b15f242c7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FrontLegL: {fileID: 0}
-  FrontLegR: {fileID: 0}
-  RearLegL: {fileID: 0}
-  RearLegR: {fileID: 0}
-  moveAngle: 90
-  movSpeed: 1
 --- !u!65 &7377095463711705119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1966,6 +1948,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2754668, y: 0.62013435, z: 0.20180106}
   m_Center: {x: 0.006791748, y: 0.34966403, z: 0.14883076}
+--- !u!114 &3829151203396944148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213206596740143696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a5eaaa885fcf4b42852561ab369cec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FrontLegL: {fileID: 0}
+  FrontLegR: {fileID: 0}
+  RearLegL: {fileID: 0}
+  RearLegR: {fileID: 0}
+  moveAngle: 90
+  movSpeed: 1
 --- !u!1 &9213206596849299574
 GameObject:
   m_ObjectHideFlags: 0
