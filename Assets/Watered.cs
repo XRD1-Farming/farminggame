@@ -13,8 +13,11 @@ public class Watered : MonoBehaviour
         {
             Destroy(other);
             
-           //other.GetNamedChild("Watered").gameObject.SetActive(false);
-           //Debug.Log("Crop: " + other.GetNamedChild("Watered").name);
+        }
+        if (other.CompareTag("Fireplace"))
+        {
+            Destroy(other);
+            GameObject.Find("ParticleSystemFire").GetComponent<Fireplace>().onFire(false);
         }
 }
 }
