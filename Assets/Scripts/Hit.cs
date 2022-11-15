@@ -26,6 +26,7 @@ public class Hit : MonoBehaviour
 
         if (other.CompareTag("Tree"))
         {
+            FindObjectOfType<AudioManager>().Play("Chop");
             Instantiate(splinters, other.transform.position, other.transform.rotation);
             Instantiate(wood, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);

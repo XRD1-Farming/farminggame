@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 public class TreeGenerator : MonoBehaviour
@@ -18,6 +19,7 @@ public class TreeGenerator : MonoBehaviour
             treesArray = treesList.ToArray();
             treesArray[i].transform.position = new Vector3(Random.Range(72, 127), 0, Random.Range(60, 130));
             treesArray[i].transform.parent = treesInWorld.transform;
+            FindObjectOfType<AudioManager>().Play("Timber");
         }
     }
 
