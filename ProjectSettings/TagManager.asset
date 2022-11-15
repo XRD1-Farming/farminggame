@@ -4,19 +4,22 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - RawChicken
   - Cow
+  - Water
   - teat
-  - Sheep
+  - Fireplace
+  - Firelighter
   - Chicken
   - Pig
   - Axe
-  - Ground
-  - Water
   - Shovel
   - Crop
   - Seeds
   - Tree
   - Fence
+  - Sheep
+  - Ground
   layers:
   - Default
   - TransparentFX

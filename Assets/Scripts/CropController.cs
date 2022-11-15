@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CropController : MonoBehaviour
@@ -42,27 +44,35 @@ public class CropController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Shovel"))
             Till();
-        if (other.gameObject.CompareTag("Water"))
-            Water();
         if (other.gameObject.CompareTag("Seeds"))
             PlantSeeds();
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.CompareTag("Water"))
+            Water();
     }
 
     private void Till()
     {
         terrain.SetActive(false);
         mud.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Shovel");
     }
     
     private void Water()
     {
         mud.SetActive(false);
         watered.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Water");
+
     }
 
     private void PlantSeeds()
     {
         seeds.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Seed");
     }
 
     private void Sprout()
@@ -76,6 +86,8 @@ public class CropController : MonoBehaviour
     {
         sprout.SetActive(false);
         crop.SetActive(true);
+       // FindObjectOfType<AudioManager>().Play("Done");
+
     }
 
     private void Harvested()
