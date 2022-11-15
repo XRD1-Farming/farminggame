@@ -84,6 +84,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1250119311083499276}
   - component: {fileID: 5007091617117807991}
+  - component: {fileID: 251733077431594949}
+  - component: {fileID: 4606584546443626883}
   m_Layer: 0
   m_Name: CarrotCrop
   m_TagString: Untagged
@@ -125,6 +127,39 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.40665054, y: 0.016121328, z: 0.42020416}
   m_Center: {x: -0.00595665, y: 0.010716837, z: -0.002292633}
+--- !u!114 &251733077431594949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926731765878072016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e02ec144adb2eb4d917ffb33b789681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrain: {fileID: 1788217364866153027}
+  mud: {fileID: 2589241330464374443}
+  watered: {fileID: 743443905854122119}
+  seeds: {fileID: 1438374181042371181}
+  sprout: {fileID: 7741200598271728688}
+  crop: {fileID: 1905388159657470114}
+  sproutTime: 20
+  cropDoneTime: 60
+--- !u!65 &4606584546443626883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926731765878072016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.41039276, y: 0.19294441, z: 0.42520905}
+  m_Center: {x: -0.010757446, y: 0.083755404, z: -0.0019111633}
 --- !u!1 &7741200598271728688
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +679,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f00d6dd578346b4e92d54b80a707165, type: 3}
+--- !u!1 &1788217364866153027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 391542976595548972, guid: 0f00d6dd578346b4e92d54b80a707165,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143164196375683439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1788217364866639459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 391542976595183372, guid: 0f00d6dd578346b4e92d54b80a707165,
@@ -1303,6 +1344,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6343840052899482447}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2589241330464374443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8928119832846448100, guid: 82836ddf37b62d44cbcebcd8186cefd9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6343840052899482447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7472222827934460268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1632,6 +1679,12 @@ PrefabInstance:
 --- !u!4 &743443905853961383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8928119832846084548, guid: dffe80b8413091e4e81af22ebb1bb627,
+    type: 3}
+  m_PrefabInstance: {fileID: 8193793627771870563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &743443905854122119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8928119832846448100, guid: dffe80b8413091e4e81af22ebb1bb627,
     type: 3}
   m_PrefabInstance: {fileID: 8193793627771870563}
   m_PrefabAsset: {fileID: 0}
