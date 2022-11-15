@@ -21,20 +21,14 @@ public class Firelighter : MonoBehaviour
         em.enabled = true;
         FindObjectOfType<AudioManager>().Play("Stones");
         collisionParticleSystem.Play();
+        GameObject.Find("ParticleSystemFire").GetComponent<Fireplace>().onFire(true);
+        FindObjectOfType<AudioManager>().Play("Fire");
+        
         
         // maybe use dur?
         yield return new WaitForSeconds(dur);
         em.enabled = false;
         collisionParticleSystem.Stop();
-        
-    }
-
-    private void OnParticleCollision(GameObject other)
-    {
-        Debug.Log(other.tag);
-        Debug.Log(other.name);
-        if (other.gameObject.CompareTag("Fireplace"))
-        { GameObject.Find("ParticleSystemFire").GetComponent<Fireplace>().onFire(true);
-            FindObjectOfType<AudioManager>().Play("Fire");}
     }
 }
+
