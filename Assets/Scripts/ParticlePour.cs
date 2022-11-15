@@ -17,9 +17,7 @@ public class ParticlePour : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(transform.parent.name);
         rotationVector = watercanTransform.rotation.eulerAngles;
-        Debug.Log(rotationVector.x + "" + particle.isPlaying + "" + particle.isEmitting);
         em.enabled = rotationVector.x is > 40f and < 180f;
         
     }

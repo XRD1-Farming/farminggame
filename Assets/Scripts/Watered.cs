@@ -12,12 +12,10 @@ public class Watered : MonoBehaviour
         if(other.CompareTag("Crop"))
         {
             Destroy(other);
-            
         }
-        if (other.CompareTag("Fireplace"))
-        {
-            Destroy(other);
-            GameObject.Find("ParticleSystemFire").GetComponent<Fireplace>().onFire(false);
-        }
-}
+
+        if (!other.CompareTag("Fireplace")) return;
+        Destroy(other);
+        GameObject.Find("ParticleSystemFire").GetComponent<Fireplace>().onFire(false);
+    }
 }

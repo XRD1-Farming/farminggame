@@ -44,10 +44,14 @@ public class CropController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Shovel"))
             Till();
-        if (other.gameObject.CompareTag("Water"))
-            Water();
         if (other.gameObject.CompareTag("Seeds"))
             PlantSeeds();
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.CompareTag("Water"))
+            Water();
     }
 
     private void Till()

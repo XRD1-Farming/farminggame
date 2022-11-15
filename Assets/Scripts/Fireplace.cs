@@ -38,6 +38,8 @@ public class Fireplace : MonoBehaviour
         }
     }
 
+    
+
     public void onFire(Boolean boolean)
     {
         fire = boolean;

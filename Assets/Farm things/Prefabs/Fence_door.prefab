@@ -108,10 +108,12 @@ GameObject:
   - component: {fileID: 3008297296413678391}
   - component: {fileID: 3008297296417069847}
   - component: {fileID: 3008297296415971799}
-  - component: {fileID: 6847449883323985709}
+  - component: {fileID: 7827599709454041982}
+  - component: {fileID: 257538203813597525}
+  - component: {fileID: 7456393370068233846}
   m_Layer: 0
   m_Name: Fence_door
-  m_TagString: Untagged
+  m_TagString: Fence
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,8 +185,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6847449883323985709
-MeshCollider:
+--- !u!65 &7827599709454041982
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,10 +195,36 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 19691f6aa755db9428322cf11b5b1ad4, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.7251595, y: 1.1001043, z: 0.1903453}
+  m_Center: {x: -0.000022739172, y: 0.55005217, z: 0.014623754}
+--- !u!65 &257538203813597525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008297296414033687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7251595, y: 1.1001043, z: 2}
+  m_Center: {x: -0.000022739172, y: 0.55005217, z: 0.014608495}
+--- !u!114 &7456393370068233846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008297296414033687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab37d689abf4ed4d8321627b4a75eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPos: {x: -24.74, y: 410.9276, z: 925}
+  speed: 1
 --- !u!1 &4761808647320462500
 GameObject:
   m_ObjectHideFlags: 0

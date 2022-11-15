@@ -16,6 +16,8 @@ TagManager:
   - Shovel
   - Crop
   - Seeds
+  - Tree
+  - Fence
   - Sheep
   - Ground
   layers:
