@@ -7,8 +7,9 @@ using UnityEngine;
 
 public class CropController : MonoBehaviour
 {
-    public GameObject terrain, mud, watered, seeds, sprout, crop;
+    public GameObject terrain, mud, watered, seeds, sprout, crop, harvest;
     public float sproutTime, cropDoneTime;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,8 @@ public class CropController : MonoBehaviour
             PlantSeeds();
         if (other.gameObject.CompareTag("Water"))
             Water();
+        if (other.gameObject.CompareTag("Axe"))
+            Harvested();
     }
     
 
@@ -95,5 +98,6 @@ public class CropController : MonoBehaviour
         seeds.SetActive(false);
         sprout.SetActive(false);
         crop.SetActive(false);
+        Instantiate(harvest,crop.transform.position,crop.transform.rotation);
     }
 }
