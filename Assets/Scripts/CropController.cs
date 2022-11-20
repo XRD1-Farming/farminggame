@@ -9,7 +9,7 @@ public class CropController : MonoBehaviour
 {
     public GameObject terrain, mud, watered, seeds, sprout, crop, harvest;
     public float sproutTime, cropDoneTime;
-    
+    public bool isWatered, isTilled, isFullyGrown;
 
     // Start is called before the first frame update
     void Start()
@@ -45,17 +45,18 @@ public class CropController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Shovel"))
             Till();
-        if (other.gameObject.CompareTag("Seeds"))
+        if (other.gameObject.CompareTag("Seeds") && isWatered && isTilled)
             PlantSeeds();
-        if (other.gameObject.CompareTag("Water"))
+        if (other.gameObject.CompareTag("Water") && isTilled)
             Water();
-        if (other.gameObject.CompareTag("Axe"))
+        if (other.gameObject.CompareTag("Axe") && isFullyGrown)
             Harvested();
     }
     
 
     private void Till()
     {
+        isTilled = true;
         terrain.SetActive(false);
         mud.SetActive(true);
         FindObjectOfType<AudioManager>().Play("Shovel");
@@ -63,6 +64,7 @@ public class CropController : MonoBehaviour
     
     private void Water()
     {
+        isWatered = true;
         mud.SetActive(false);
         watered.SetActive(true);
         FindObjectOfType<AudioManager>().Play("Water");
@@ -84,6 +86,7 @@ public class CropController : MonoBehaviour
 
     private void CropDone()
     {
+        isFullyGrown = true;
         sprout.SetActive(false);
         crop.SetActive(true);
        // FindObjectOfType<AudioManager>().Play("Done");
@@ -98,6 +101,9 @@ public class CropController : MonoBehaviour
         seeds.SetActive(false);
         sprout.SetActive(false);
         crop.SetActive(false);
+        isTilled = false;
+        isWatered = false;
+        isFullyGrown = false;
         var position = crop.transform.position;
         var rotation = crop.transform.rotation;
         Instantiate(harvest,position,rotation);
