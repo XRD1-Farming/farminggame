@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AutomaticFence : MonoBehaviour
 {
-    public Vector3 endPos;
-    private Vector3 startPos;   
+    public float fenceWidth;
+    private Vector3 startPos;
     public float speed = 1.0f;
     private float delay = 0.0f;
 
@@ -21,16 +21,15 @@ public class AutomaticFence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        if (!moving) return;
+        if(opening)
         {
-            if(opening)
-            {
-                MoveDoor(endPos);
-            }
-            else
-            {
-                MoveDoor(startPos);
-            }
+            Vector3 end = new Vector3(startPos.x, startPos.y, startPos.z + fenceWidth);
+            MoveDoor(end);
+        }
+        else
+        {
+            MoveDoor(startPos);
         }
     }
 
@@ -61,7 +60,7 @@ public class AutomaticFence : MonoBehaviour
 
     public bool Moving
     {
-        get { return moving; }
-        set { moving = value;  }
+        get => moving;
+        set => moving = value;
     }
 }
