@@ -98,6 +98,9 @@ public class CropController : MonoBehaviour
         seeds.SetActive(false);
         sprout.SetActive(false);
         crop.SetActive(false);
-        Instantiate(harvest,crop.transform.position,crop.transform.rotation);
+        var position = crop.transform.position;
+        var rotation = crop.transform.rotation;
+        Instantiate(harvest,position,rotation);
+        Instantiate(harvest,position,rotation);
     }
 }

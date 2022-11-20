@@ -49,6 +49,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2225795424408378186}
   - component: {fileID: 5576379333189695569}
+  - component: {fileID: 4149700520901434054}
   m_Layer: 0
   m_Name: TomatoCrop
   m_TagString: Untagged
@@ -95,8 +96,22 @@ MonoBehaviour:
   seeds: {fileID: 6611313168720137046}
   sprout: {fileID: 5986957633772024919}
   crop: {fileID: 3364318284538140650}
+  harvest: {fileID: 5473569773201198281, guid: fd8e0760db14a534a89257f68a4f2a8c, type: 3}
   sproutTime: 20
   cropDoneTime: 60
+--- !u!65 &4149700520901434054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564956746884372880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98879176, y: 0.25799352, z: 1.019346}
+  m_Center: {x: 0.005771369, y: 0.11627996, z: -0.015067934}
 --- !u!1001 &876793255347227237
 PrefabInstance:
   m_ObjectHideFlags: 0
