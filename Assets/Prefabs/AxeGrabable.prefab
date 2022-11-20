@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 1017861664268274880, guid: 37cbf0f5fb9002a468810e49ccbe2f4f, type: 3}
-  food: {fileID: 4446042087989776518, guid: fdf19312d22c047f7b92ac36a4ac658d, type: 3}
+  food: {fileID: 3438374788604995955, guid: 009c4e9ac40c4394094a0d1506c247a2, type: 3}
   splinters: {fileID: 1017861664268274880, guid: b63fef71f9d12ce4c88efe1950004505,
     type: 3}
   wood: {fileID: 919132149155446097, guid: bd596d423bb482b4aae331a36d8d9e47, type: 3}

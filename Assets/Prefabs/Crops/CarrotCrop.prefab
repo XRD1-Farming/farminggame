@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 1250119311083499276}
   - component: {fileID: 5007091617117807991}
   - component: {fileID: 251733077431594949}
-  - component: {fileID: 4606584546443626883}
   m_Layer: 0
   m_Name: CarrotCrop
   m_TagString: Untagged
@@ -122,11 +121,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926731765878072016}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40665054, y: 0.016121328, z: 0.42020416}
-  m_Center: {x: -0.00595665, y: 0.010716837, z: -0.002292633}
+  m_Size: {x: 1.0152895, y: 0.69605345, z: 1.0294657}
+  m_Center: {x: -0.007300258, y: 0.35461798, z: 0.0016220212}
 --- !u!114 &251733077431594949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,20 +146,10 @@ MonoBehaviour:
   crop: {fileID: 1905388159657470114}
   harvest: {fileID: 2931599777171156985, guid: 6babded354a0947f5816d671762d9241, type: 3}
   sproutTime: 20
-  cropDoneTime: 60
---- !u!65 &4606584546443626883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926731765878072016}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.41039276, y: 0.19294441, z: 0.42520905}
-  m_Center: {x: -0.010757446, y: 0.083755404, z: -0.0019111633}
+  cropDoneTime: 40
+  isWatered: 0
+  isTilled: 0
+  isFullyGrown: 0
 --- !u!1 &7741200598271728688
 GameObject:
   m_ObjectHideFlags: 0

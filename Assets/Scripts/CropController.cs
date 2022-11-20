@@ -105,6 +105,7 @@ public class CropController : MonoBehaviour
         isWatered = false;
         isFullyGrown = false;
         var position = crop.transform.position;
+        position.y =+ 1;
         var rotation = crop.transform.rotation;
         Instantiate(harvest,position,rotation);
         Instantiate(harvest,position,rotation);
