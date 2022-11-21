@@ -9,7 +9,13 @@ namespace EasyPrimitiveAnimals
     {
         
         private bool canPeck = true;
+        private AudioManager _audioManager;
 
+
+        private void Start()
+        {
+            _audioManager = FindObjectOfType<AudioManager>();
+        }
 
         private void Update()
         {
@@ -19,7 +25,7 @@ namespace EasyPrimitiveAnimals
                 }
                 if (Random.Range(0, 100) > 80 && canPeck)
                 {
-                    FindObjectOfType<AudioManager>().Play("Bokbok");
+                    _audioManager.Play("Bokbok");
                 }
         }
 
