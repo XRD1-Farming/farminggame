@@ -46,8 +46,8 @@ public class DayNightCycle : MonoBehaviour
             time = 0.0f;
 
         // light rotation
-        sun.transform.eulerAngles = (time - 0.25f) * noon * 4.0f;
-        moon.transform.eulerAngles = (time - 0.75f) * noon * 4.0f;
+        sun.transform.eulerAngles = noon * ((time - 0.25f) * 4.0f);
+        moon.transform.eulerAngles = noon * ((time - 0.75f) * 4.0f);
 
         // light intensity
         sun.intensity = sunIntensity.Evaluate(time);
@@ -57,17 +57,27 @@ public class DayNightCycle : MonoBehaviour
         sun.color = sunColor.Evaluate(time);
         moon.color = moonColor.Evaluate(time);
 
-        // enable / disable the sun
-        if (sun.intensity == 0 && sun.gameObject.activeInHierarchy)
-            sun.gameObject.SetActive(false);
-        else if (sun.intensity > 0 && !sun.gameObject.activeInHierarchy)
-            sun.gameObject.SetActive(true);
+        switch (sun.intensity)
+        {
+            // enable / disable the sun
+            case 0 when sun.gameObject.activeInHierarchy:
+                sun.gameObject.SetActive(false);
+                break;
+            case > 0 when !sun.gameObject.activeInHierarchy:
+                sun.gameObject.SetActive(true);
+                break;
+        }
 
-        // enable / disable the moon
-        if (moon.intensity == 0 && moon.gameObject.activeInHierarchy)
-            moon.gameObject.SetActive(false);
-        else if (moon.intensity > 0 && !moon.gameObject.activeInHierarchy)
-            moon.gameObject.SetActive(true);
+        switch (moon.intensity)
+        {
+            // enable / disable the moon
+            case 0 when moon.gameObject.activeInHierarchy:
+                moon.gameObject.SetActive(false);
+                break;
+            case > 0 when !moon.gameObject.activeInHierarchy:
+                moon.gameObject.SetActive(true);
+                break;
+        }
 
         // lighting and reflections intensity
         RenderSettings.ambientIntensity = lightingIntensityMultiplier.Evaluate(time);

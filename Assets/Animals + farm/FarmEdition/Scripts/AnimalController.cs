@@ -30,50 +30,44 @@ namespace EasyPrimitiveAnimals
 
         private void Start()
         {
-            if (this.gameObject.CompareTag("Pig"))
-            {
-                // Ensure child objects of legs are named EPA_FL, EPA_FR, EPA_RL and EPA_RR so the searches below can assign them to leg variables.
-                FrontLegL = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_FL").gameObject;    // Find child object for front left leg.
-                FrontLegR = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_FR").gameObject;    // Find child object for front right leg.
-                RearLegL = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_RL").gameObject;    // Find child object for rear left leg.
-                RearLegR = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_RR").gameObject;    // Find child object for rear right leg.
+            if (!gameObject.CompareTag("Pig")) return;
+            // Ensure child objects of legs are named EPA_FL, EPA_FR, EPA_RL and EPA_RR so the searches below can assign them to leg variables.
+            FrontLegL = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_FL").gameObject;    // Find child object for front left leg.
+            FrontLegR = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_FR").gameObject;    // Find child object for front right leg.
+            RearLegL = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_RL").gameObject;    // Find child object for rear left leg.
+            RearLegR = transform.Find("BaseAnimal").transform.Find("Legs").transform.Find("EPA_RR").gameObject;    // Find child object for rear right leg.
 
-                rotSpeed = movSpeed * 4; // Set legs to move relative to animal moving speed.
-            }
+            rotSpeed = movSpeed * 4; // Set legs to move relative to animal moving speed.
         }
 
         private void Update()
         {
-            if (this.gameObject.CompareTag("Pig")) // If animal the script is attached to is not a chicken, animate 4 legs and body.
-            {
-                Quaternion legAngleFromA = Quaternion.Euler(this.legStartPosA);         // Set first start angle of leg.
-                Quaternion legAngleToA = Quaternion.Euler(this.legEndPosA);             // Set first end angle of leg.
+            if (!gameObject.CompareTag("Pig")) return; // If animal the script is attached to is not a chicken, animate 4 legs and body.
+            Quaternion legAngleFromA = Quaternion.Euler(this.legStartPosA);         // Set first start angle of leg.
+            Quaternion legAngleToA = Quaternion.Euler(this.legEndPosA);             // Set first end angle of leg.
 
-                Quaternion legAngleFromB = Quaternion.Euler(this.legStartPosB);         // Set second start angle of leg.
-                Quaternion legAngleToB = Quaternion.Euler(this.legEndPosB);             // Set second end angle of leg.
+            Quaternion legAngleFromB = Quaternion.Euler(this.legStartPosB);         // Set second start angle of leg.
+            Quaternion legAngleToB = Quaternion.Euler(this.legEndPosB);             // Set second end angle of leg.
 
-                float lerp = 0.5f * (1.0f + Mathf.Sin(Mathf.PI * Time.realtimeSinceStartup * this.rotSpeed));
+            float lerp = 0.5f * (1.0f + Mathf.Sin(Mathf.PI * Time.realtimeSinceStartup * this.rotSpeed));
 
-                FrontLegL.transform.localRotation = Quaternion.Lerp(legAngleFromA, legAngleToA, lerp);
-                FrontLegR.transform.localRotation = Quaternion.Lerp(legAngleFromB, legAngleToB, lerp);
+            FrontLegL.transform.localRotation = Quaternion.Lerp(legAngleFromA, legAngleToA, lerp);
+            FrontLegR.transform.localRotation = Quaternion.Lerp(legAngleFromB, legAngleToB, lerp);
 
-                RearLegL.transform.localRotation = Quaternion.Lerp(legAngleFromB, legAngleToB, lerp);
-                RearLegR.transform.localRotation = Quaternion.Lerp(legAngleFromA, legAngleToA, lerp);
+            RearLegL.transform.localRotation = Quaternion.Lerp(legAngleFromB, legAngleToB, lerp);
+            RearLegR.transform.localRotation = Quaternion.Lerp(legAngleFromA, legAngleToA, lerp);
 
-                // Wander
-                transform.Translate((Vector3.forward * Time.deltaTime) * movSpeed);
-            }
+            // Wander
+            transform.Translate(Vector3.forward * (Time.deltaTime * movSpeed));
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (!collision.gameObject.CompareTag("Ground") && canRotate) // If the animal collides with something that is not the ground, spin it around.
+            if (collision.gameObject.CompareTag("Ground") || !canRotate) return; // If the animal collides with something that is not the ground, spin it around.
+            StartCoroutine(SpinMeRound());
+            if (Random.Range(0, 100) > 95)
             {
-                StartCoroutine(SpinMeRound());
-                if (Random.Range(0, 100) > 95)
-                {
-                    FindObjectOfType<AudioManager>().Play("Oink");
-                }
+                FindObjectOfType<AudioManager>().Play("Oink");
             }
         }
 
