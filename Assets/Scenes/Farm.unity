@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b951b64b42be2844691380badba762e9, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1605257395}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.34623015, g: 0.48418325, b: 0.5866636, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2720,7 +2720,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 6e-44, y: 2.1188082e+11, z: 223.30965, w: 3.3632965}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7340,7 +7340,7 @@ LightingSettings:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   serializedVersion: 4
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
@@ -13093,8 +13093,18 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 8bc567bd53bbb8c469c6ba45ccb2b315, type: 3}
     - target: {fileID: 2740565290451738021, guid: b25475e2809d82e4f8d7c81c1d12e371,
         type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740565290451738021, guid: b25475e2809d82e4f8d7c81c1d12e371,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740565290451738021, guid: b25475e2809d82e4f8d7c81c1d12e371,
+        type: 3}
       propertyPath: sounds.Array.data[3].volume
-      value: 0.103
+      value: 0.093
       objectReference: {fileID: 0}
     - target: {fileID: 8464219058068215575, guid: b25475e2809d82e4f8d7c81c1d12e371,
         type: 3}
